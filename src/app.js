@@ -1,9 +1,12 @@
 const express = require("express");
+const { adminAuth } = require("./middlewares/auth");
 
 const app = express();
 
-app.get("/app", (req, res) => {
-  throw new Error("deepak");
+app.use("/admin", adminAuth);
+
+app.get("/admin/app", (req, res) => {
+  //   throw new Error("deepak");
   res.send("deepaksingh");
 });
 
